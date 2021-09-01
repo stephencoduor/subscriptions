@@ -1,0 +1,74 @@
+{
+    "name": "stephen/subscriptions",
+    "description": "Subscriptions is a flexible plans and subscription management system for Laravel, with the required tools to run your SAAS like services efficiently.",
+
+
+    "type": "library",
+    "keywords": [
+        "plan",
+        "value",
+        "laravel",
+        "feature",
+        "database",
+        "recurring",
+        "subscription"
+    ],
+    "license": "MIT",
+    "homepage": "https://itbrains.co.ke",
+    "support": {
+        "email": "info@itbrains.co.ke",
+        "issues": "https://github.com/stephencoduor/php-subscriptions/issues",
+        "source": "https://github.com/stephencoduor/php-subscriptions",
+        "docs": "https://github.com/stephencoduor/php-subscriptions/blob/master/README.md"
+    },
+    "authors": [
+        {
+            "name": "IT BRAINS LTD",
+            "homepage": "https://itbrains.co.ke",
+            "email": "info@itbrains.co.ke"
+        }
+
+    ],
+    "require": {
+        "php": "^8.0.0",
+        "illuminate/console": "^8.0.0 || ^9.0.0",
+        "illuminate/database": "^8.0.0 || ^9.0.0",
+        "illuminate/support": "^8.0.0 || ^9.0.0",
+        "rinvex/laravel-support": "^6.0.0",
+        "spatie/eloquent-sortable": "^4.0.0",
+        "spatie/laravel-sluggable": "^3.0.0",
+        "spatie/laravel-translatable": "^5.0.0"
+    },
+    "require-dev": {
+        "codedungeon/phpunit-result-printer": "^0.31.0",
+        "illuminate/container": "^8.0.0 || ^9.0.0",
+        "phpunit/phpunit": "^9.5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Stephen\\Subscriptions\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Stephen\\Subscriptions\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Stephen\\Subscriptions\\Providers\\SubscriptionsServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
