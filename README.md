@@ -1,4 +1,4 @@
-# Stephen Subscriptions
+# subscription management system
 
 **PHP Subscriptions** is a flexible plans and subscription management system for Laravel, with the required tools to run your SAAS like services efficiently. It's simple architecture, accompanied by powerful underlying to afford solid platform for your business.
 
@@ -13,17 +13,17 @@
 
 1. Install the package via composer:
     ```shell
-    composer require Stephen/subscriptions
+    composer require stephen/subscriptions
     ```
 
 2. Publish resources (migrations and config files):
     ```shell
-    php artisan Stephen:publish:subscriptions
+    php artisan stephen:publish:subscriptions
     ```
 
 3. Execute migrations via the following command:
     ```shell
-    php artisan Stephen:migrate:subscriptions
+    php artisan stephen:migrate:subscriptions
     ```
 
 4. Done!
@@ -81,7 +81,7 @@ $plan->features()->saveMany([
 You can query the plan for further details, using the intuitive API as follows:
 
 ```php
-$plan = app('Stephen.subscriptions.plan')->find(1);
+$plan = app('stephen.subscriptions.plan')->find(1);
 
 // Get all plan features                
 $plan->features;
@@ -122,7 +122,7 @@ You can subscribe a user to a plan by using the `newSubscription()` function ava
 
 ```php
 $user = User::find(1);
-$plan = app('Stephen.subscriptions.plan')->find(1);
+$plan = app('stephenStephen.subscriptions.plan')->find(1);
 
 $user->newSubscription('main', $plan);
 ```
@@ -134,8 +134,8 @@ The first argument passed to `newSubscription` method should be the title of the
 You can change subscription plan easily as follows:
 
 ```php
-$plan = app('Stephen.subscriptions.plan')->find(2);
-$subscription = app('Stephen.subscriptions.plan_subscription')->find(1);
+$plan = app('stephen.subscriptions.plan')->find(2);
+$subscription = app('stephen.subscriptions.plan_subscription')->find(1);
 
 // Change subscription plan
 $subscription->changePlan($plan);
@@ -149,7 +149,7 @@ Plan features are great for fine-tuning subscriptions, you can top-up certain fe
 
 ```php
 // Find plan feature
-$feature = app('Stephen.subscriptions.plan_feature')->where('name', 'listing_duration_days')->first();
+$feature = app('stephen.subscriptions.plan_feature')->where('name', 'listing_duration_days')->first();
 
 // Get feature reset date
 $feature->getResetDate(new \Carbon\Carbon());
@@ -261,23 +261,23 @@ $user->subscription('main')->cancel(true);
 
 ```php
 // Get subscriptions by plan
-$subscriptions = app('Stephen.subscriptions.plan_subscription')->byPlanId($plan_id)->get();
+$subscriptions = app('stephen.subscriptions.plan_subscription')->byPlanId($plan_id)->get();
 
 // Get bookings of the given user
 $user = \App\Models\User::find(1);
-$bookingsOfSubscriber = app('Stephen.subscriptions.plan_subscription')->ofSubscriber($user)->get(); 
+$bookingsOfSubscriber = app('stephen.subscriptions.plan_subscription')->ofSubscriber($user)->get(); 
 
 // Get subscriptions with trial ending in 3 days
-$subscriptions = app('Stephen.subscriptions.plan_subscription')->findEndingTrial(3)->get();
+$subscriptions = app('stephen.subscriptions.plan_subscription')->findEndingTrial(3)->get();
 
 // Get subscriptions with ended trial
-$subscriptions = app('Stephen.subscriptions.plan_subscription')->findEndedTrial()->get();
+$subscriptions = app('stephen.subscriptions.plan_subscription')->findEndedTrial()->get();
 
 // Get subscriptions with period ending in 3 days
-$subscriptions = app('Stephen.subscriptions.plan_subscription')->findEndingPeriod(3)->get();
+$subscriptions = app('stephen.subscriptions.plan_subscription')->findEndingPeriod(3)->get();
 
 // Get subscriptions with ended period
-$subscriptions = app('Stephen.subscriptions.plan_subscription')->findEndedPeriod()->get();
+$subscriptions = app('stephen.subscriptions.plan_subscription')->findEndedPeriod()->get();
 ```
 
 ### Models
