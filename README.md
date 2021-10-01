@@ -13,17 +13,17 @@
 
 1. Install the package via composer:
     ```shell
-    composer require stephen/subscriptions
+    composer require stephencoduor/subscriptions
     ```
 
 2. Publish resources (migrations and config files):
     ```shell
-    php artisan stephen:publish:subscriptions
+    php artisan stephencoduor:publish:subscriptions
     ```
 
 3. Execute migrations via the following command:
     ```shell
-    php artisan stephen:migrate:subscriptions
+    php artisan stephencoduor:migrate:subscriptions
     ```
 
 4. Done!
@@ -33,12 +33,12 @@
 
 ### Add Subscriptions to User model
 
-**Stephen Subscriptions** has been specially made for Eloquent and simplicity has been taken very serious as in any other Laravel related aspect. To add Subscription functionality to your User model just use the `\Stephen\Subscriptions\Traits\HasSubscriptions` trait like this:
+**stephencoduor Subscriptions** has been specially made for Eloquent and simplicity has been taken very serious as in any other Laravel related aspect. To add Subscription functionality to your User model just use the `\Stephencoduor\Subscriptions\Traits\HasSubscriptions` trait like this:
 
 ```php
 namespace App\Models;
 
-use Stephen\Subscriptions\Traits\HasSubscriptions;
+use Stephencoduor\Subscriptions\Traits\HasSubscriptions;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -54,7 +54,7 @@ That's it, we only have to use that trait in our User model! Now your users may 
 ### Create a Plan
 
 ```php
-$plan = app('Stephen.subscriptions.plan')->create([
+$plan = app('Stephencoduor.subscriptions.plan')->create([
     'name' => 'Pro',
     'description' => 'Pro plan',
     'price' => 9.99,
@@ -81,7 +81,7 @@ $plan->features()->saveMany([
 You can query the plan for further details, using the intuitive API as follows:
 
 ```php
-$plan = app('stephen.subscriptions.plan')->find(1);
+$plan = app('stephencoduor.subscriptions.plan')->find(1);
 
 // Get all plan features                
 $plan->features;
@@ -110,10 +110,10 @@ Say you want to show the value of the feature _pictures_per_listing_ from above.
 $amountOfPictures = $plan->getFeatureBySlug('pictures_per_listing')->value;
 
 // Query the feature itself directly
-$amountOfPictures = app('Stephen.subscriptions.plan_feature')->where('slug', 'pictures_per_listing')->first()->value;
+$amountOfPictures = app('Stephencoduor.subscriptions.plan_feature')->where('slug', 'pictures_per_listing')->first()->value;
 
 // Get feature value through the subscription instance
-$amountOfPictures = app('Stephen.subscriptions.plan_subscription')->find(1)->getFeatureValue('pictures_per_listing');
+$amountOfPictures = app('Stephencoduor.subscriptions.plan_subscription')->find(1)->getFeatureValue('pictures_per_listing');
 ```
 
 ### Create a Subscription
@@ -122,7 +122,7 @@ You can subscribe a user to a plan by using the `newSubscription()` function ava
 
 ```php
 $user = User::find(1);
-$plan = app('stephenStephen.subscriptions.plan')->find(1);
+$plan = app('stephencoduorStephencoduor.subscriptions.plan')->find(1);
 
 $user->newSubscription('main', $plan);
 ```
@@ -134,8 +134,8 @@ The first argument passed to `newSubscription` method should be the title of the
 You can change subscription plan easily as follows:
 
 ```php
-$plan = app('stephen.subscriptions.plan')->find(2);
-$subscription = app('stephen.subscriptions.plan_subscription')->find(1);
+$plan = app('stephencoduor.subscriptions.plan')->find(2);
+$subscription = app('stephencoduor.subscriptions.plan_subscription')->find(1);
 
 // Change subscription plan
 $subscription->changePlan($plan);
@@ -149,7 +149,7 @@ Plan features are great for fine-tuning subscriptions, you can top-up certain fe
 
 ```php
 // Find plan feature
-$feature = app('stephen.subscriptions.plan_feature')->where('name', 'listing_duration_days')->first();
+$feature = app('stephencoduor.subscriptions.plan_feature')->where('name', 'listing_duration_days')->first();
 
 // Get feature reset date
 $feature->getResetDate(new \Carbon\Carbon());
@@ -261,34 +261,34 @@ $user->subscription('main')->cancel(true);
 
 ```php
 // Get subscriptions by plan
-$subscriptions = app('stephen.subscriptions.plan_subscription')->byPlanId($plan_id)->get();
+$subscriptions = app('stephencoduor.subscriptions.plan_subscription')->byPlanId($plan_id)->get();
 
 // Get bookings of the given user
 $user = \App\Models\User::find(1);
-$bookingsOfSubscriber = app('stephen.subscriptions.plan_subscription')->ofSubscriber($user)->get(); 
+$bookingsOfSubscriber = app('stephencoduor.subscriptions.plan_subscription')->ofSubscriber($user)->get(); 
 
 // Get subscriptions with trial ending in 3 days
-$subscriptions = app('stephen.subscriptions.plan_subscription')->findEndingTrial(3)->get();
+$subscriptions = app('stephencoduor.subscriptions.plan_subscription')->findEndingTrial(3)->get();
 
 // Get subscriptions with ended trial
-$subscriptions = app('stephen.subscriptions.plan_subscription')->findEndedTrial()->get();
+$subscriptions = app('stephencoduor.subscriptions.plan_subscription')->findEndedTrial()->get();
 
 // Get subscriptions with period ending in 3 days
-$subscriptions = app('stephen.subscriptions.plan_subscription')->findEndingPeriod(3)->get();
+$subscriptions = app('stephencoduor.subscriptions.plan_subscription')->findEndingPeriod(3)->get();
 
 // Get subscriptions with ended period
-$subscriptions = app('stephen.subscriptions.plan_subscription')->findEndedPeriod()->get();
+$subscriptions = app('stephencoduor.subscriptions.plan_subscription')->findEndedPeriod()->get();
 ```
 
 ### Models
 
-**Stephen Subscriptions** uses 4 models:
+**Stephencoduor Subscriptions** uses 4 models:
 
 ```php
-Stephen\Subscriptions\Models\Plan;
-Stephen\Subscriptions\Models\PlanFeature;
-Stephen\Subscriptions\Models\PlanSubscription;
-Stephen\Subscriptions\Models\PlanSubscriptionUsage;
+Stephencoduor\Subscriptions\Models\Plan;
+Stephencoduor\Subscriptions\Models\PlanFeature;
+Stephencoduor\Subscriptions\Models\PlanSubscription;
+Stephencoduor\Subscriptions\Models\PlanSubscriptionUsage;
 ```
 
 

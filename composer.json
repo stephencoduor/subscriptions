@@ -1,5 +1,5 @@
 {
-    "name": "stephen/subscriptions",
+    "name": "stephencoduor/subscriptions",
     "description": "Subscriptions is a flexible plans and subscription management system for Laravel, with the required tools to run your SAAS like services efficiently.",
 
 
@@ -17,9 +17,9 @@
     "homepage": "https://itbrains.co.ke",
     "support": {
         "email": "info@itbrains.co.ke",
-        "issues": "https://github.com/stephencoduor/php-subscriptions/issues",
-        "source": "https://github.com/stephencoduor/php-subscriptions",
-        "docs": "https://github.com/stephencoduor/php-subscriptions/blob/master/README.md"
+        "issues": "https://github.com/stephencoduorcoduor/php-subscriptions/issues",
+        "source": "https://github.com/stephencoduorcoduor/php-subscriptions",
+        "docs": "https://github.com/stephencoduorcoduor/php-subscriptions/blob/master/README.md"
     },
     "authors": [
         {
@@ -46,12 +46,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Stephen\\Subscriptions\\": "src"
+            "Stephencoduor\\Subscriptions\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Stephen\\Subscriptions\\Tests\\": "tests"
+            "Stephencoduor\\Subscriptions\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -65,7 +65,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Stephen\\Subscriptions\\Providers\\SubscriptionsServiceProvider"
+                "Stephencoduor\\Subscriptions\\Providers\\SubscriptionsServiceProvider"
             ]
         }
     },

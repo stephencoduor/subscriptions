@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Stephen\Subscriptions\Providers;
+namespace Stephencoduor\Subscriptions\Providers;
 
-use Stephen\Subscriptions\Models\Plan;
+use Stephencoduor\Subscriptions\Models\Plan;
 use Illuminate\Support\ServiceProvider;
-use Stephen\Support\Traits\ConsoleTools;
-use Stephen\Subscriptions\Models\PlanFeature;
-use Stephen\Subscriptions\Models\PlanSubscription;
+use Stephencoduor\Support\Traits\ConsoleTools;
+use Stephencoduor\Subscriptions\Models\PlanFeature;
+use Stephencoduor\Subscriptions\Models\PlanSubscription;
 use Stephen\Subscriptions\Models\PlanSubscriptionUsage;
 use Stephen\Subscriptions\Console\Commands\MigrateCommand;
 use Stephen\Subscriptions\Console\Commands\PublishCommand;

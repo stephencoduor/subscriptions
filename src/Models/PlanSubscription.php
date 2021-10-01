@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Stephen\Subscriptions\Models;
+namespace Stephencoduor\Subscriptions\Models;
 
 use DB;
 use Carbon\Carbon;
 use LogicException;
 use Spatie\Sluggable\SlugOptions;
-use Stephen\Support\Traits\HasSlug;
+use Stephencoduor\Support\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Stephen\Subscriptions\Services\Period;

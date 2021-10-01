@@ -20,10 +20,10 @@ return [
     // Subscriptions Models
     'models' => [
 
-        'plan' => \Stephen\Subscriptions\Models\Plan::class,
-        'plan_feature' => \Stephen\Subscriptions\Models\PlanFeature::class,
-        'plan_subscription' => \Stephen\Subscriptions\Models\PlanSubscription::class,
-        'plan_subscription_usage' => \Stephen\Subscriptions\Models\PlanSubscriptionUsage::class,
+        'plan' => \Stephencoduor\Subscriptions\Models\Plan::class,
+        'plan_feature' => \Stephencoduor\Subscriptions\Models\PlanFeature::class,
+        'plan_subscription' => \Stephencoduor\Subscriptions\Models\PlanSubscription::class,
+        'plan_subscription_usage' => \Stephencoduor\Subscriptions\Models\PlanSubscriptionUsage::class,
 
     ],
 

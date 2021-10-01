@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Stephen\Subscriptions\Traits;
+namespace Stephencoduor\Subscriptions\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -16,7 +16,7 @@ trait BelongsToPlan
      */
     public function plan(): BelongsTo
     {
-        return $this->belongsTo(config('stephen.subscriptions.models.plan'), 'plan_id', 'id', 'plan');
+        return $this->belongsTo(config('stephencoduor.subscriptions.models.plan'), 'plan_id', 'id', 'plan');
     }
 
     /**

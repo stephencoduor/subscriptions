@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Stephen\Subscriptions\Models;
+namespace Stephencoduor\Subscriptions\Models;
 
 use Spatie\Sluggable\SlugOptions;
-use Stephen\Support\Traits\HasSlug;
+use Stephencoduor\Support\Traits\HasSlug;
 use Spatie\EloquentSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
-use Stephen\Support\Traits\HasTranslations;
-use Stephen\Support\Traits\ValidatingTrait;
+use Stephencoduor\Support\Traits\HasTranslations;
+use Stephencoduor\Support\Traits\ValidatingTrait;
 use Spatie\EloquentSortable\SortableTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * Stephen\Subscriptions\Models\Plan.
+ * Stephencoduor\Subscriptions\Models\Plan.
  *
  * @property int                 $id
  * @property string              $slug
@@ -39,17 +39,17 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property \Carbon\Carbon|null $deleted_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\Stephen\Subscriptions\Models\PlanFeature[]      $features
- * @property-read \Illuminate\Database\Eloquent\Collection|\Stephen\Subscriptions\Models\PlanSubscription[] $subscriptions
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Stephencoduor\Subscriptions\Models\PlanFeature[]      $features
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Stephencoduor\Subscriptions\Models\PlanSubscription[] $subscriptions
  *
- * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\Plan ordered($direction = 'asc')
- * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\Plan whereActiveSubscribersLimit($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\Plan whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\Plan whereCurrency($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\Plan whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\Plan whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\Plan whereGraceInterval($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\Plan whereGracePeriod($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Stephencoduor\Subscriptions\Models\Plan ordered($direction = 'asc')
+ * @method static \Illuminate\Database\Eloquent\Builder|\Stephencoduor\Subscriptions\Models\Plan whereActiveSubscribersLimit($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Stephencoduor\Subscriptions\Models\Plan whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Stephencoduor\Subscriptions\Models\Plan whereCurrency($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Stephencoduor\Subscriptions\Models\Plan whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Stephencoduor\Subscriptions\Models\Plan whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Stephencoduor\Subscriptions\Models\Plan whereGraceInterval($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Stephencoduor\Subscriptions\Models\Plan whereGracePeriod($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\Plan whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\Plan whereInvoiceInterval($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\Plan whereInvoicePeriod($value)

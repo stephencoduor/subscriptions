@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Stephen\Subscriptions\Traits;
+namespace Stephencoduor\Subscriptions\Traits;
 
 use Carbon\Carbon;
-use Stephen\Subscriptions\Models\Plan;
-use Stephen\Subscriptions\Services\Period;
+use Stephencoduor\Subscriptions\Models\Plan;
+use Stephencoduor\Subscriptions\Services\Period;
 use Illuminate\Database\Eloquent\Collection;
-use Stephen\Subscriptions\Models\PlanSubscription;
+use Stephencoduor\Subscriptions\Models\PlanSubscription;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait HasSubscriptions
@@ -33,7 +33,7 @@ trait HasSubscriptions
      */
     public function subscriptions(): MorphMany
     {
-        return $this->morphMany(config('stephen.subscriptions.models.plan_subscription'), 'subscriber', 'subscriber_type', 'subscriber_id');
+        return $this->morphMany(config('stephencoduor.subscriptions.models.plan_subscription'), 'subscriber', 'subscriber_type', 'subscriber_id');
     }
 
     /**
@@ -51,7 +51,7 @@ trait HasSubscriptions
      *
      * @param string $subscriptionSlug
      *
-     * @return \Stephen\Subscriptions\Models\PlanSubscription|null
+     * @return \Stephencoduor\Subscriptions\Models\PlanSubscription|null
      */
     public function subscription(string $subscriptionSlug): ?PlanSubscription
     {
@@ -61,13 +61,13 @@ trait HasSubscriptions
     /**
      * Get subscribed plans.
      *
-     * @return \Stephen\Subscriptions\Models\PlanSubscription|null
+     * @return \Stephencoduor\Subscriptions\Models\PlanSubscription|null
      */
     public function subscribedPlans(): ?PlanSubscription
     {
         $planIds = $this->subscriptions->reject->inactive()->pluck('plan_id')->unique();
 
-        return app('stephen.subscriptions.plan')->whereIn('id', $planIds)->get();
+        return app('stephencoduor.subscriptions.plan')->whereIn('id', $planIds)->get();
     }
 
     /**
@@ -88,10 +88,10 @@ trait HasSubscriptions
      * Subscribe subscriber to a new plan.
      *
      * @param string                            $subscription
-     * @param \Stephen\Subscriptions\Models\Plan $plan
+     * @param \Stephencoduor\Subscriptions\Models\Plan $plan
      * @param \Carbon\Carbon|null               $startDate
      *
-     * @return \Stephen\Subscriptions\Models\PlanSubscription
+     * @return \Stephencoduor\Subscriptions\Models\PlanSubscription
      */
     public function newSubscription($subscription, Plan $plan, Carbon $startDate = null): PlanSubscription
     {

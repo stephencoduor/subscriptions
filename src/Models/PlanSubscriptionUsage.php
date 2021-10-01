@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Stephen\Subscriptions\Models;
+namespace Stephencoduor\Subscriptions\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
-use Stephen\Support\Traits\ValidatingTrait;
+use Stephencoduor\Support\Traits\ValidatingTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * Stephen\Subscriptions\Models\PlanSubscriptionUsage.
+ * Stephencoduor\Subscriptions\Models\PlanSubscriptionUsage.
  *
  * @property int                 $id
  * @property int                 $subscription_id
@@ -22,18 +22,18 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property \Carbon\Carbon|null $deleted_at
- * @property-read \Stephen\Subscriptions\Models\PlanFeature      $feature
- * @property-read \Stephen\Subscriptions\Models\PlanSubscription $subscription
+ * @property-read \Stephencoduor\Subscriptions\Models\PlanFeature      $feature
+ * @property-read \Stephencoduor\Subscriptions\Models\PlanSubscription $subscription
  *
- * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\PlanSubscriptionUsage byFeatureSlug($featureSlug)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\PlanSubscriptionUsage whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\PlanSubscriptionUsage whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\PlanSubscriptionUsage whereFeatureId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\PlanSubscriptionUsage whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\PlanSubscriptionUsage whereSubscriptionId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\PlanSubscriptionUsage whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\PlanSubscriptionUsage whereUsed($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stephen\Subscriptions\Models\PlanSubscriptionUsage whereValidUntil($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Stephencoduor\Subscriptions\Models\PlanSubscriptionUsage byFeatureSlug($featureSlug)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Stephencoduor\Subscriptions\Models\PlanSubscriptionUsage whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Stephencoduor\Subscriptions\Models\PlanSubscriptionUsage whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Stephencoduor\Subscriptions\Models\PlanSubscriptionUsage whereFeatureId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Stephencoduor\Subscriptions\Models\PlanSubscriptionUsage whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Stephencoduor\Subscriptions\Models\PlanSubscriptionUsage whereSubscriptionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Stephencoduor\Subscriptions\Models\PlanSubscriptionUsage whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Stephencoduor\Subscriptions\Models\PlanSubscriptionUsage whereUsed($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Stephencoduor\Subscriptions\Models\PlanSubscriptionUsage whereValidUntil($value)
  * @mixin \Eloquent
  */
 class PlanSubscriptionUsage extends Model
@@ -92,10 +92,10 @@ class PlanSubscriptionUsage extends Model
      */
     public function __construct(array $attributes = [])
     {
-        $this->setTable(config('stephen.subscriptions.tables.plan_subscription_usage'));
+        $this->setTable(config('stephencoduor.subscriptions.tables.plan_subscription_usage'));
         $this->mergeRules([
-            'subscription_id' => 'required|integer|exists:'.config('stephen.subscriptions.tables.plan_subscriptions').',id',
-            'feature_id' => 'required|integer|exists:'.config('stephen.subscriptions.tables.plan_features').',id',
+            'subscription_id' => 'required|integer|exists:'.config('stephencoduor.subscriptions.tables.plan_subscriptions').',id',
+            'feature_id' => 'required|integer|exists:'.config('stephencoduor.subscriptions.tables.plan_features').',id',
             'used' => 'required|integer',
             'valid_until' => 'nullable|date',
         ]);
@@ -110,7 +110,7 @@ class PlanSubscriptionUsage extends Model
      */
     public function feature(): BelongsTo
     {
-        return $this->belongsTo(config('stephen.subscriptions.models.plan_feature'), 'feature_id', 'id', 'feature');
+        return $this->belongsTo(config('stephencoduor.subscriptions.models.plan_feature'), 'feature_id', 'id', 'feature');
     }
 
     /**
@@ -120,7 +120,7 @@ class PlanSubscriptionUsage extends Model
      */
     public function subscription(): BelongsTo
     {
-        return $this->belongsTo(config('stephen.subscriptions.models.plan_subscription'), 'subscription_id', 'id', 'subscription');
+        return $this->belongsTo(config('stephencoduor.subscriptions.models.plan_subscription'), 'subscription_id', 'id', 'subscription');
     }
 
     /**
